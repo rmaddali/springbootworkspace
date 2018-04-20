@@ -21,7 +21,7 @@
     <version>1.5.10-13</version>
   </parent>
 
-  <artifactId>booster-rest-http-spring-boot</artifactId>
+  <artifactId>springboot-insult-service</artifactId>
 
   <groupId>io.openshift.booster</groupId>
   <version>1.0.0-SNAPSHOT</version>
@@ -49,7 +49,10 @@
       <groupId>com.fasterxml.jackson.jaxrs</groupId>
       <artifactId>jackson-jaxrs-json-provider</artifactId>
     </dependency>
-
+<dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+    </dependency>
     <!-- Testing -->
     <dependency>
       <groupId>org.jboss.arquillian.junit</groupId>
@@ -90,7 +93,25 @@
         <artifactId>spring-boot-devtools</artifactId>
         <optional>true</optional>
     </dependency>
+    <dependency>
+      <groupId>io.fabric8</groupId>
+      <artifactId>fabric8-arquillian</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
+  	
+	
+
+	<dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>io.fabric8</groupId>
+        <artifactId>fabric8-arquillian</artifactId>
+        <version>2.2.192</version>
+        <scope>test</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <profiles>
     <profile>
